@@ -18,7 +18,7 @@ public interface DailyDescMapper {
     @Select("select id as id, user_name as userName, descs, create_time as createTime, user_id as userId from daily_desc  order by create_time desc")
     public List<DailyDesc> getAll();
     @Select("select id as id, user_name as userName, descs, create_time as createTime, user_id as userId from daily_desc  order by create_time desc limit ${(pageNo-1)*pageSize},${pageNo*pageSize}")
-    public List<DailyDesc> getByPage(@Param("pageNo") Int pageNo, int pageSize);
+    public List<DailyDesc> getByPage(Int pageNo, int pageSize);
     @Insert(" insert into daily_desc ( user_name, descs, create_time) values (#{userName},#{descs},#{createTime}) ")
     public int save(DailyDesc dailyDesc);
 
